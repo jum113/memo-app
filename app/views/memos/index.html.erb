@@ -81,7 +81,7 @@
     <div class="list-header d-flex justify-content-end align-items-center">
 
       <%= link_to "#" do %>
-        <i class="bi bi-trash me-4" style="font-size:20px"></i>
+        <i class="bi bi-trash me-3" style="font-size:20px"></i>
       <% end %>
     
     </div>
@@ -278,11 +278,18 @@
 
   <div class="main bg-white col-7">
 
-    <div class="main-header">
-      新規作成アイコン
+    <div class="main-header border-start d-flex justify-content-start align-items-center">
+
+      <%= link_to "#" do %>
+        <i class="bi bi-pencil-square ms-3" style="font-size:20px"></i>
+      <% end %>
+    
     </div>
     <div class="main-text">
-      テキスト
+      <div class="form-floating">
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+        <label for="floatingTextarea">Comments</label>
+      </div>
     </div>
   
   </div>
