@@ -1,0 +1,37 @@
+.sidebar {
+  height: 100vh;
+}
+
+
+  .sidebar-header {
+    height: 50px;
+  }
+
+  .memo-folder {
+    height: calc(100vh - 100px);
+  }
+  .folder-name {
+    padding-bottom: 20px;
+  }
+
+  .sidebar-footer {
+    height: 50px;
+  }
+
+
+  .list-header {
+    height: 50px;
+  }
+
+  .list {
+    height: calc(100vh - 50px);
+  }
+
+
+  .main-header {
+    height: 50px;
+  }
+
+  .main-text {
+    height: calc(100vh - 50px);
+  }
