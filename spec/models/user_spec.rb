@@ -32,12 +32,12 @@ RSpec.describe User, type: :model do
         @user.save
         another_user = FactoryBot.build(:user, email: @user.email)
         another_user.valid?
-        expect(another_user.errors.full_messages).to include("Email has already been taken")
+        expect(another_user.errors.full_messages).to include('Email has already been taken')
       end
       it 'emailに@が含まれていない場合登録できない' do
         @user.email = 'test.com'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email is invalid")
+        expect(@user.errors.full_messages).to include('Email is invalid')
       end
       it 'passwordが空では登録できない' do
         @user.password = ''
@@ -48,7 +48,7 @@ RSpec.describe User, type: :model do
         @user.password = 'abc12'
         @user.password_confirmation = 'abc12'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
+        expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
       end
       it 'passwordとpassword_confirmationが不一致では登録できない' do
         @user.password_confirmation = ''
@@ -59,19 +59,19 @@ RSpec.describe User, type: :model do
         @user.password = '123456'
         @user.password_confirmation = '123456'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password には英字と数字の両方を含めて設定してください")
+        expect(@user.errors.full_messages).to include('Password には英字と数字の両方を含めて設定してください')
       end
       it 'passwordが英字のみでは登録できない' do
         @user.password = 'abcdef'
         @user.password_confirmation = 'abcdef'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password には英字と数字の両方を含めて設定してください")
+        expect(@user.errors.full_messages).to include('Password には英字と数字の両方を含めて設定してください')
       end
       it 'passwordに全角文字が含まれている場合登録できない' do
         @user.password = 'abc12あ'
         @user.password_confirmation = 'abc12あ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password には英字と数字の両方を含めて設定してください")
+        expect(@user.errors.full_messages).to include('Password には英字と数字の両方を含めて設定してください')
       end
     end
   end
