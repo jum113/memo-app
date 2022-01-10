@@ -38,3 +38,9 @@
   .form-control {
     height: calc(100vh - 50px) !important;
   }
+
+  
+  .error-message {
+    list-style: none;
+    color: red;
+  }
