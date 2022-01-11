@@ -4,6 +4,7 @@ class MemosController < ApplicationController
   end
 
   def create
-    post = memo.create(memo: params[:memo])
+    memo = memo.create(memo: params[:memo])
+    reder json:{ post: memo }
   end
 end
