@@ -4,7 +4,12 @@ class MemosController < ApplicationController
   end
 
   def create
-    memo = memo.create(memo: params[:memo])
-    reder json:{ post: memo }
+    memo = Memo.create(memo_params)
+    render json:{ post: memo }
+  end
+
+  private
+  def memo_params
+    params.require(:memo).permit(:memo).merge(user_id: current_user.id)
   end
 end
