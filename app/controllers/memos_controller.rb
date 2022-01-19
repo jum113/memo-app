@@ -4,8 +4,8 @@ class MemosController < ApplicationController
   end
 
   def create
+    binding.pry
     memo = Memo.create(memo_params)
-    render json:{ post: memo }
   end
 
   private
