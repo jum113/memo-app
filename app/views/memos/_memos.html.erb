@@ -1,8 +1,15 @@
 <% memos.each do |memo| %>
   <div class="card mx-4 my-3 " style="width: 20rem;">
-    <div class="body overflow-scroll" style="height: 300px">
-      <h5 class="card-title shadow ms-2"><%= memo.title %></h5>
-      <p class="card-text px-2 py-3 overflow-scroll"><%= memo.content %></p>
+    <div class="card-body overflow-scroll" style="height: 300px">
+      <h5 class="card-title shadow ms-2">
+        <%= memo.title %>
+      </h5>
+      <h6 class="d-flex justify-content-end pt-2">
+        <%= memo.created_at %>
+      </h6>
+      <p class="card-text overflow-scroll">
+        <%= memo.content %>
+      </p>
     </div>
   </div>
 <% end %>
