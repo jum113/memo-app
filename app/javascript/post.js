@@ -28,6 +28,10 @@ function post(){
     XHR.responseType = "json";
     XHR.send(formData);
     XHR.onload = () => {
+      if (XHR.status != 200) {
+        alert(`Error ${XHR.status}: ${XHR.statusText}`);
+        return null;
+      };
       const list = document.getElementById("list");
       const title = document.getElementById("title");
       const formText = document.getElementById("content");
