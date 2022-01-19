@@ -17,6 +17,7 @@
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
+| title  | string     |                                |
 | memo   | text       |                                |
 | user   | references | null: false, foreign_key: true |
 | folder | references | null: false, foreign_key: true |
