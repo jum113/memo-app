@@ -19,13 +19,13 @@
   }
 
 
-  .list-header {
+  /* .list-header {
     height: 50px;
   }
 
   .list {
     height: calc(100vh - 50px);
-  }
+  } */
 
 
   .main-header {
@@ -33,11 +33,12 @@
   }
 
   .main-text {
-    height: calc(100vh - 50px);
-  }
-  .form-control {
     height: calc(100vh - 50px) !important;
   }
+  
+  /* .form-control {
+    height: calc(100vh - 50px) !important;
+  } */
 
   
   .error-message {
