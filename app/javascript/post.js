@@ -38,6 +38,7 @@ function post(){
       list.insertAdjacentHTML("afterbegin", buildHTML(XHR));
       title.value = "";
       formText.value = "";
+      location.reload();
     };
   });
 };
