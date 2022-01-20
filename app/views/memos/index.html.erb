@@ -41,10 +41,6 @@
 
     <div class="main-header border-start d-flex justify-content-start align-items-center">
 
-      <%= link_to "#" do %>
-        <i class="bi bi-trash ms-3" style="font-size:20px"></i>
-      <% end %>
-
       <!-- Button trigger modal -->
       <button type="button" class="btn btn-primary ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <i class="bi bi-pencil-square" style="font-size:20px"></i>
@@ -78,13 +74,10 @@
         </div>
       </div>
 
-      <%= link_to "#", id: "add-memo" do %>
-        
-      <% end %>
-
     </div>
+
     <div class="main-text memos d-flex flex-wrap justify-content-between aline-items-center overflow-scroll", id="list">
-        <%= render 'memos', memos: @memos%>
+        <%= render 'memos', memos: @memos %>
     </div>
 
   </div>
