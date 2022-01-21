@@ -4,7 +4,7 @@ function create(){
     const exampleModal = document.getElementById("exampleModal");
     $('body').removeClass('modal-open');
     $('.modal-backdrop').remove();
-    exampleModal.style.display = 'none'
+    exampleModal.style.display = 'none';
   });
 };
 
