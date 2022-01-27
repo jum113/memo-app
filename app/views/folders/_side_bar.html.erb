@@ -1,0 +1,42 @@
+<div class="sidebar bg-light col-2">
+
+  <div class="sidebar-header shadow d-flex align-items-center">
+    <i class="bi bi-journal-text mx-2" style="font-size:24px">MemoApp</i>
+  </div>
+  <div class="memos-folder overflow-scroll">
+
+    <div class="memo-folder pt-4 ms-2">
+
+      <% @folders.each do |folder| %>
+        
+        <div class="folder-name d-flex justify-content-between">
+          <%= link_to folder.folder_name, folder_memos_path(folder), class: "d-block pb-3 text-decoration-none" %>
+          <%= link_to folder_path(folder), method: :delete, class: "me-2" do %>
+            <i class="bi bi-trash" style="font-size:20px"></i>
+          <% end %>
+        </div>
+        
+      <% end %>
+
+    </div>
+
+  </div>
+  <div class="folder-form">
+    <%= form_with model: @folder, id: "folder-form" do |f| %>
+      <%= f.label :folder_name, "フォルダー名" %>
+      <%= f.text_field :folder_name, class: "form-control", id: "folder" %>
+      <%= f.submit "作成する", class: "btn btn-primary", id: "folder-submit" %>
+    <% end %>
+  </div>
+  <div class="sidebar-footer d-flex justify-content-between align-items-center">
+
+    <%= link_to destroy_user_session_path, method: :delete do %>
+      <i class="bi bi-door-closed ms-2" style="font-size:20px"></i>
+    <% end %>
+    <button type="button" class="btn btn-primary ms-3" id="folder-btn">
+      <i class="bi bi-plus-circle me-1">新規フォルダー</i>
+    </button>
+
+  </div>
+
+</div>

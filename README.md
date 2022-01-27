@@ -31,7 +31,7 @@
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
-| folder | string     |                                |
+| folder | string     | null: false                    |
 | user   | references | null: false, foreign_key: true |
 
 ### Association

@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_11_011813) do
+ActiveRecord::Schema.define(version: 2022_01_27_133359) do
+
+  create_table "folders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "folder_name", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_folders_on_user_id"
+  end
 
   create_table "memos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -18,6 +26,8 @@ ActiveRecord::Schema.define(version: 2022_01_11_011813) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "folder_id", null: false
+    t.index ["folder_id"], name: "index_memos_on_folder_id"
     t.index ["user_id"], name: "index_memos_on_user_id"
   end
 
@@ -34,5 +44,7 @@ ActiveRecord::Schema.define(version: 2022_01_11_011813) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "folders", "users"
+  add_foreign_key "memos", "folders"
   add_foreign_key "memos", "users"
 end

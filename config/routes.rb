@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'memos#index'
-  resources :memos, only: [:index, :create, :destroy]
+  root 'folders#index'
+  resources :folders, only: [:index, :create, :destroy] do
+    resources :memos, only: [:index, :create, :destroy]
+  end
 end

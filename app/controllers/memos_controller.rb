@@ -1,18 +1,26 @@
 class MemosController < ApplicationController
   def index
-    @memos = Memo.order('created_at DESC')
     @memo = Memo.new
+    @folder = Folder.find(params[:folder_id])
+    @memos = @folder.memos.order("created_at DESC")
+    @folders = Folder.order("created_at ASC")
   end
 
   def create
-    memo = Memo.create(memo_params)
-    render json: { post: memo }
+    @folder = Folder.find(params[:folder_id])
+    @memo = @folder.memos.new(memo_params)
+    if @memo.save
+      redirect_to folder_memos_path(@folder)
+    else
+      render :index
+    end
   end
 
   def destroy
-    memo = Memo.find(params[:id])
+    @folder = Folder.find(params[:folder_id])
+    memo = @folder.memos.find(params[:id])
     memo.destroy
-    redirect_to root_path
+    redirect_to action: :index
   end
 
   private
