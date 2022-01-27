@@ -1,0 +1,60 @@
+<div class="main bg-white col-10">
+
+  <div class="main-header border-start d-flex justify-content-start align-items-center">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <i class="bi bi-pencil-square" style="font-size:20px"></i>
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">新規メモ</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <%= form_with model: [@folder, @memo], id: "form" do |f| %>
+            <div class="modal-body">
+              <div class="form-group">
+                <%= f.label :title, "タイトル" %>
+                <%= f.text_field :title, class: "form-control", id: "title" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :content, "テキスト" %>
+                <%= f.text_area :content, class: "form-control", id: "content" %>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+              <%= f.submit "作成する", class: "btn btn-primary", id: "submit" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-text memos d-flex flex-wrap justify-content-between aline-items-center overflow-scroll", id="list">
+    <% @memos.each do |memo| %>
+      <div class="card mx-4 my-3" style="width: 20rem;">
+        <div class="card-body overflow-scroll" style="height: 300px">
+          <h5 class="card-title shadow ms-2">
+            <%= memo.title %>
+          </h5>
+          <div class="d-flex justify-content-between">
+            <h6 class="pt-2">
+              <%= memo.created_at %>
+            </h6>
+            <%= link_to folder_memo_path(@folder, memo), method: :delete do %>
+              <i class="bi bi-trash" style="font-size:20px"></i>
+            <% end %>
+          </div>
+          <p class="card-text overflow-scroll">
+            <%= memo.content %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
